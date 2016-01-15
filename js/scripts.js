@@ -1,15 +1,22 @@
 $(document).ready(function(){
+
   $("#blanks form").submit(function(event) {
-    var blanks = ["fun", "job", "food"];
+    var blanksArray = ["fun", "job", "food"];
+    var userAnswer = 0;
 
-    blanks.forEach(function(blank) {
-      var userAnswer = $("select#" + blank).val();
-      $("." + blank).append(userAnswer);
-    })
+    blanksArray.forEach(function(blank) {
+      userAnswer += parseInt($("select#" + blank).val());ß
+    });
 
-    if (userAnswer === "Go Glamping" && === "Celebrity / Rapper / Business Mogul" && === "Anything from Tom's Bistro");
-      $("#tom").show();
-
+    if (userAnswer >= 8) {
+      $("#leslie").show();
+    }
+    else if (userAnswer >= 5 && userAnswer <= 7) {
+        $("#tom").show();
+    }
+    else {
+      $("#chris").show();
+    }
     event.preventDefault();
   });
 });
